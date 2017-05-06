@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script
+  src="https://code.jquery.com/jquery-3.2.1.js"
+  integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
+  crossorigin="anonymous"></script>
+	<title></title>
+</head>
+<body>
+<div id="mix"></div>
+
+<button id="rain" data-name="rainy">rainy</button>
+<button id="sunny" data-name="sunny">sunny</button>
+<button id="snowy" data-name="snowy">snowy</button>
+
+
+<script type="text/javascript">
+var mixes = ['<iframe width="100%" height="60" src="https://www.mixcloud.com/widget/iframe/?feed=https%3A%2F%2Fwww.mixcloud.com%2FLeFtOoO%2Fshow654-new-kendrick-lamar-jameszoo-guts-dark-sky-ishmael-sauce81%2F&hide_cover=1&mini=1&light=1" frameborder="0"></iframe>', '<iframe width="100%" height="60" src="https://www.mixcloud.com/widget/iframe/?feed=https%3A%2F%2Fwww.mixcloud.com%2Fabstractexpression%2F2015-0311-metalmix%2F&hide_cover=1&mini=1&light=1" frameborder="0"></iframe>', '<iframe width="100%" height="60" src="https://www.mixcloud.com/widget/iframe/?feed=https%3A%2F%2Fwww.mixcloud.com%2FTheVinylFactory%2Fvf-mix-63-aphex-twin-by-%25CE%25BC-ziq%2F&hide_cover=1&mini=1&light=1" frameborder="0"></iframe>']
+
+$("button").on('click', function() {
+        var weather = $(this).data('name');
+        console.log(weather);
+
+        if (weather === "rainy"){
+        	$("#mix").html(mixes[0]);
+        }
+
+        if (weather === "sunny"){
+        	$("#mix").html(mixes[1]);
+        }
+        if (weather === "snowy"){
+        	$("#mix").html(mixes[2]);
+        }
+
+
+});
+
+
+</script>
+</body>
+</html>
