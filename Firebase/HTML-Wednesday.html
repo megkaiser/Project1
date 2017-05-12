@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Weather API</title>
+    <!-- Bootswatch Styling for Improving the Aesthetics -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.6/flatly/bootstrap.min.css">
+    <!-- Font Awesome CSS Icons (For cool glyphicons) -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <script src="https://www.gstatic.com/firebasejs/3.9.0/firebase.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <!-- fix later -->
+        <iframe width="50%" height="60" frameborder="0" src=""></iframe>
+        <div>
+            <form id="user-form" style="display: none">
+                <div>
+                    <label for="search">Enter your location:</label>
+                    <input type="text" class="form-control" id="location-name">
+                    <!-- <label for="search">State Name:</label>
+                <input type="text" class="form-control" id="state-name">
+                <label for="search">Country Name:</label>
+                <input type="text" class="form-control" id="country-name"> -->
+                    <button type="submit" class="btn btn-default" id="input-location">
+                        </i> Search</button>
+                </div>
+            </form>
+            <div class="city"></div>
+            <div class="wind"></div>
+            <div class="humidity"></div>
+            <div class="temp"></div>
+            <div class="code"></div>
+            <div id="geolocation"></div>
+        </div>
+
+        <form id="sign-up">
+            <label>Email:</label>
+            <input type="text" class="form-control" id="email-name">
+            <label>Password:</label>
+            <input type="password" class="form-control" id="password-name">
+            <button type="submit" class="btn btn-default" id="submit-new-user">
+                    Sign-up</button>
+            <button type="submit" class="btn btn-default" id="login-user">
+                    Login</button>
+            <button type="submit" class="btn btn-default" id="logout-user">
+                    Log Out</button>
+        </form>
+
+
+        <!--         <button type="button" data-toggle="modal" data-target="#myModal">Open Modal</button>
+ -->
+        <div class="modal fade" tabindex="-1" role="dialog" id="myModal">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title">Do you want us to use your location to find music</h4>
+                    </div>
+                    <div class="modal-body">
+                        <button class="btn btn-success" id="yes-geo">Yes</button>
+                        <button class="btn btn-danger" id="no-geo">No</button>
+                    </div>
+                </div>
+                <!-- /.modal-content -->
+            </div>
+            <!-- /.modal-dialog -->
+        </div>
+        <!-- /.modal -->
+
+
+        <!-- jQuery JS -->
+        <script src="https://code.jquery.com/jquery.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        <!-- Code to the JavaScript File -->
+        <script src="HTML-Wednesday.js"></script>
+        <!-- JSON file -->
+        <!-- <script type="text/javascript" src="data.json"></script> -->
+</body>
+
+</html>

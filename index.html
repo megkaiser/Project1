@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <script src="http://widget.mixcloud.com/media/js/widgetApi.js" type="text/javascript"></script>
+    <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    </head>
+    <title>App</title>
+  </head>
+  <body>
+    <iframe width="50%" height="60" frameborder="0" src=""></iframe>
+    <script type="text/javascript">
+    showWidget();
+    function getOauth() {
+      location.href ="https://www.mixcloud.com/oauth/authorize?client_id=yf52JKSHVGHYVksWSM&redirect_uri=http://localhost:3000";
+    }
+
+    function getAccessToken() {
+      location.href='https://www.mixcloud.com/oauth/access_token?client_id=yf52JKSHVGHYVksWSM&redirect_uri=http://localhost:3000&client_secret=KUduqYkAPWqCykfcmQsZYTfk3pR4q89x&code=e8ZrjZXXag'
+
+      // Figure out how to get access_token
+    }
+
+    function showWidget() {
+      var access_token = 'E3MjPt6NJSQZ22S3pSTwgEvY7wBWeA5M';
+
+      $.ajax({
+        url: 'https://api.mixcloud.com/popular/?access_token=' + access_token,
+        method: 'GET',
+        dataType: 'json'
+      }).done(function(response) {
+
+        // ADD WEATHER CONDITION HERE //
+
+        var weatherTags = weatherToTag('sunny');
+        var iframe_src = findMusicTag(response, weatherTags);
+        $('iframe').attr('src', 'https://www.mixcloud.com/widget/iframe/?feed=' + iframe_src + '&hide_cover=1&mini=1&light=1&autoplay=1');
+
+      });
+
+    };
+
+    function weatherToTag(weatherCondition) {
+      switch(weatherCondition){
+        case 'rain':
+          return ['/discover/downtempo/', '/discover/chillout/', '/discover/ambient/'];
+          break;
+        case 'snow':
+          return ['/discover/jazz/', '/discover/minimal/'];
+          break;
+        default:
+          return ['/discvoer/soul/', '/discover/afrobeat/', '/discover/reggae/'];
+      }
+    };
+
+    function findMusicTag(response, tagsToFind) {
+      var data = response.data;
+      for (i=0; i<data.length; i++) {
+        for (j=0; j<data[i].tags.length; j++) {
+          for (k=0; k<tagsToFind.length; k++) {
+            if (data[i].tags[j].key == tagsToFind[k]) {
+              return data[i].url;
+            }
+          }
+        }
+      }
+    };
+
+    </script>
+  </body>
+</html>
